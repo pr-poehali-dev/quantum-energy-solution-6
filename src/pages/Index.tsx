@@ -4,7 +4,7 @@ export default function Index() {
       <div className="grain-overlay" />
 
       <header className="header">
-        <div className="logo">SMASH*STREET</div>
+        <div className="logo">JASMIN</div>
         <nav>
           <a href="#">Меню</a>
           <a href="#">О нас</a>
@@ -113,9 +113,9 @@ export default function Index() {
                   }}
                 >
                   <h3>Шаурма Гриль</h3>
-                  <span className="price">350 ₽</span>
+                  <span className="price">55 ₽ / 30 ₽</span>
                 </div>
-                <p style={{ fontSize: "14px", color: "#666" }}>Сочная курица на гриле, свежие овощи, фирменный острый соус в тонкой лепёшке.</p>
+                <p style={{ fontSize: "14px", color: "#666" }}>Сочная курица на гриле, свежие овощи, фирменный острый соус в тонкой лепёшке. Большая — 55 ₽, мини — 30 ₽.</p>
               </div>
             </div>
 
@@ -164,7 +164,7 @@ export default function Index() {
 
         <section className="section-padding">
           <h2 className="section-title" style={{ marginBottom: "40px", textAlign: "center" }}>
-            @SMASH.STREET
+            @JASMIN
           </h2>
           <div className="social-grid">
             <div className="social-item">
@@ -197,7 +197,7 @@ export default function Index() {
 
       <footer>
         <div>
-          <div className="footer-logo">SMASH*STREET</div>
+          <div className="footer-logo">JASMIN</div>
           <p style={{ color: "#666", lineHeight: 1.6 }}>
             Сочные бургеры и шаурма на гриле. Готовим как для себя — быстро, вкусно и с дерзким вайбом 70-х.
           </p>
@@ -237,7 +237,7 @@ export default function Index() {
           </ul>
         </div>
         <div className="footer-bottom">
-          <span>2025 SMASH STREET</span>
+          <span>2025 JASMIN</span>
           <span>ВКУС УЛИЦЫ</span>
           <span>IG / TW / TK</span>
         </div>
