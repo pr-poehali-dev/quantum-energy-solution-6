@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Unbounded:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&subset=cyrillic&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Unbounded:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&subset=cyrillic&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -242,7 +242,7 @@ nav a:hover {
 }
 
 .hero-img {
-  background: url("https://images.unsplash.com/photo-1550547660-d9450f859349?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80")
+  background: url("https://cdn.poehali.dev/projects/88664095-633f-4fa5-a32a-b3924974a3ff/files/4f14616e-5ba7-4796-9d15-20b1ca3da102.jpg")
     center center / cover;
   position: relative;
   min-height: 300px;
