@@ -6,10 +6,10 @@ export default function Index() {
       <header className="header">
         <div className="logo">JASMIN</div>
         <nav>
-          <a href="#">Меню</a>
-          <a href="#">О нас</a>
-          <a href="#">Доставка</a>
-          <a href="#">Адреса</a>
+          <a href="#menu">Меню</a>
+          <a href="#about">О нас</a>
+          <a href="#delivery">Доставка</a>
+          <a href="#address">Адреса</a>
         </nav>
         <button className="btn-cta">Заказать</button>
       </header>
@@ -56,7 +56,7 @@ export default function Index() {
           </div>
         </div>
 
-        <section className="section-padding">
+        <section id="menu" className="section-padding">
           <div className="section-header">
             <h2 className="section-title">ВЫБОР ШЕФА</h2>
             <a
@@ -148,7 +148,7 @@ export default function Index() {
           </div>
         </section>
 
-        <section className="retro-vibe">
+        <section id="about" className="retro-vibe">
           <div>
             <h2 className="vibe-title">ВКУС, КОТОРЫЙ ЦЕПЛЯЕТ.</h2>
             <p className="vibe-text">
@@ -195,7 +195,7 @@ export default function Index() {
         </section>
       </main>
 
-      <footer>
+      <footer id="address">
         <div>
           <div className="footer-logo">JASMIN</div>
           <p style={{ color: "#666", lineHeight: 1.6 }}>
