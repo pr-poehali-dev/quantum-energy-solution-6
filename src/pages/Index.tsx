@@ -228,12 +228,10 @@ export default function Index() {
           </ul>
         </div>
         <div className="footer-links">
-          <h4>Часы работы</h4>
+          <h4>Адрес</h4>
           <ul>
-            <li>Вт-Чт: 12:00 - 23:00</li>
-            <li>Пт-Сб: 12:00 - 02:00</li>
-            <li>Вс: 11:00 - 21:00</li>
-            <li>Пн: Выходной</li>
+            <li>Рыбница</li>
+            <li>ул. Мичурина, 35А/1</li>
           </ul>
         </div>
         <div className="footer-bottom">
