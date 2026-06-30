@@ -1,3 +1,7 @@
-# quantum-energy-solution-6
+# Ретро Дайнер
 
-Initial repository setup for pr-poehali-dev/quantum-energy-solution-6
+![Preview](https://cdn.poehali.dev/templates/retro-bistro-ru/preview-ru.jpg)
+
+Лендинг для ресторана или кафе в стиле американских закусочных 70-х годов. Включает hero-секцию с дерзкими слоганами, карточки меню с ценами, секцию атмосферы заведения, Instagram-галерею и футер с часами работы. Зернистая текстура и ретро-типографика создают ностальгический вайб.
+
+`"tags": ["landing", "dark", "food", "retro", "menu", "gallery"]`
