@@ -1,0 +1,11 @@
+{
+  "tests": [
+    {
+      "name": "Get categories",
+      "method": "GET",
+      "path": "/?action=categories",
+      "expectedStatus": 200,
+      "bodyMatcher": "partial"
+    }
+  ]
+}
