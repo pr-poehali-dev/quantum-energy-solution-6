@@ -35,9 +35,7 @@ export default function Forum() {
   useEffect(() => {
     const saved = localStorage.getItem("forum_user");
     if (saved) setUser(JSON.parse(saved));
-    fetch(`${API}/?action=categories`)
-      .then((r) => r.json())
-      .then(setCategories);
+    fetch(`${API}/?action=categories`).then((r) => r.json()).then(setCategories);
   }, []);
 
   const handleAuth = async () => {
@@ -55,69 +53,105 @@ export default function Forum() {
     setForm({ username: "", password: "" });
   };
 
-  const logout = () => {
-    localStorage.removeItem("forum_user");
-    setUser(null);
-  };
+  const logout = () => { localStorage.removeItem("forum_user"); setUser(null); };
 
   return (
-    <div className="forum-wrap">
-      <div className="forum-header">
-        <div className="forum-logo" onClick={() => navigate("/forum")}>⚡ ФОРУМ</div>
-        <div className="forum-header-right">
-          {user ? (
-            <>
-              <span className="forum-username">👤 {user.username}</span>
-              <button className="forum-btn-sm" onClick={logout}>Выйти</button>
-            </>
-          ) : (
-            <button className="forum-btn" onClick={() => setShowAuth(true)}>Войти / Регистрация</button>
-          )}
+    <div className="rm-wrap">
+      {/* Top nav */}
+      <div className="rm-topnav">
+        <div className="rm-topnav-inner">
+          <div className="rm-logo" onClick={() => navigate("/")}>
+            <span className="rm-logo-icon">⚡</span>
+            <span className="rm-logo-text">JASMIN</span>
+            <span className="rm-logo-sub">ONLINE</span>
+          </div>
+          <nav className="rm-nav">
+            <a href="#" className="rm-nav-link active">💬 Форумы</a>
+            <a href="#" className="rm-nav-link">🔥 Что нового?</a>
+            <a href="#" className="rm-nav-link">👥 Пользователи</a>
+          </nav>
+          <div className="rm-nav-right">
+            {user ? (
+              <>
+                <div className="rm-user-chip" onClick={() => {}}>
+                  <div className="rm-user-avatar">{user.username[0].toUpperCase()}</div>
+                  <span>{user.username}</span>
+                </div>
+                <button className="rm-btn-ghost" onClick={logout}>Выйти</button>
+              </>
+            ) : (
+              <>
+                <button className="rm-btn-ghost" onClick={() => { setAuthMode("login"); setShowAuth(true); }}>Войти</button>
+                <button className="rm-btn-primary" onClick={() => { setAuthMode("register"); setShowAuth(true); }}>Регистрация</button>
+              </>
+            )}
+          </div>
         </div>
       </div>
 
-      <div className="forum-container">
-        <div className="forum-breadcrumb">🏠 Главная</div>
-        <h1 className="forum-title">Разделы форума</h1>
+      {/* Main */}
+      <div className="rm-main">
+        <div className="rm-breadcrumb">
+          <span className="rm-breadcrumb-home">🏠</span> Форумы
+        </div>
 
-        <div className="forum-categories">
-          {categories.map((cat) => (
-            <div key={cat.id} className="forum-cat-row" onClick={() => navigate(`/forum/category/${cat.id}`)}>
-              <div className="forum-cat-icon">💬</div>
-              <div className="forum-cat-info">
-                <div className="forum-cat-title">{cat.title}</div>
-                <div className="forum-cat-desc">{cat.description}</div>
+        <div className="rm-section-title">Игровые сервера</div>
+
+        <div className="rm-forum-block">
+          <div className="rm-forum-block-header">
+            JASMIN RolePlay
+          </div>
+          <div className="rm-categories">
+            {categories.map((cat) => (
+              <div key={cat.id} className="rm-cat-row" onClick={() => navigate(`/forum/category/${cat.id}`)}>
+                <div className="rm-cat-left">
+                  <div className="rm-cat-icon">💬</div>
+                  <div>
+                    <div className="rm-cat-name">
+                      {cat.title}
+                      {cat.last_topic_title && <span className="rm-new-dot" />}
+                    </div>
+                    <div className="rm-cat-counts">
+                      <span>Тем <strong>{cat.topic_count.toLocaleString()}</strong></span>
+                      <span>Сообщений <strong>{cat.post_count.toLocaleString()}</strong></span>
+                    </div>
+                  </div>
+                </div>
+                <div className="rm-cat-right">
+                  {cat.last_topic_title ? (
+                    <>
+                      <div className="rm-cat-last-avatar">{(cat.last_user || "?")[0].toUpperCase()}</div>
+                      <div>
+                        <div className="rm-cat-last-title">{cat.last_topic_title}</div>
+                        <div className="rm-cat-last-meta">{cat.last_post_at} · <span className="rm-cat-last-user">{cat.last_user}</span></div>
+                      </div>
+                    </>
+                  ) : <span className="rm-no-posts">Нет тем</span>}
+                </div>
               </div>
-              <div className="forum-cat-stats">
-                <div><span className="forum-stat-num">{cat.topic_count.toLocaleString()}</span><br /><span className="forum-stat-label">Тем</span></div>
-                <div><span className="forum-stat-num">{cat.post_count.toLocaleString()}</span><br /><span className="forum-stat-label">Сообщений</span></div>
-              </div>
-              <div className="forum-cat-last">
-                {cat.last_topic_title ? (
-                  <>
-                    <div className="forum-last-title">{cat.last_topic_title}</div>
-                    <div className="forum-last-meta">{cat.last_post_at} · {cat.last_user}</div>
-                  </>
-                ) : <span className="forum-stat-label">Нет тем</span>}
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
 
+      {/* Auth modal */}
       {showAuth && (
-        <div className="forum-modal-overlay" onClick={() => setShowAuth(false)}>
-          <div className="forum-modal" onClick={(e) => e.stopPropagation()}>
-            <h2>{authMode === "login" ? "Вход" : "Регистрация"}</h2>
-            <div className="forum-auth-tabs">
+        <div className="rm-overlay" onClick={() => setShowAuth(false)}>
+          <div className="rm-modal" onClick={(e) => e.stopPropagation()}>
+            <div className="rm-modal-logo">⚡ JASMIN</div>
+            <div className="rm-auth-tabs">
               <button className={authMode === "login" ? "active" : ""} onClick={() => setAuthMode("login")}>Войти</button>
               <button className={authMode === "register" ? "active" : ""} onClick={() => setAuthMode("register")}>Регистрация</button>
             </div>
-            <input placeholder="Имя пользователя" value={form.username} onChange={(e) => setForm({ ...form, username: e.target.value })} />
-            <input type="password" placeholder="Пароль" value={form.password} onChange={(e) => setForm({ ...form, password: e.target.value })}
+            <input placeholder="Имя пользователя" value={form.username}
+              onChange={(e) => setForm({ ...form, username: e.target.value })} />
+            <input type="password" placeholder="Пароль" value={form.password}
+              onChange={(e) => setForm({ ...form, password: e.target.value })}
               onKeyDown={(e) => e.key === "Enter" && handleAuth()} />
-            {authError && <div className="forum-error">{authError}</div>}
-            <button className="forum-btn" onClick={handleAuth}>{authMode === "login" ? "Войти" : "Зарегистрироваться"}</button>
+            {authError && <div className="rm-error">{authError}</div>}
+            <button className="rm-btn-primary rm-btn-full" onClick={handleAuth}>
+              {authMode === "login" ? "Войти" : "Зарегистрироваться"}
+            </button>
           </div>
         </div>
       )}
