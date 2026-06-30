@@ -71,7 +71,6 @@ export default function Index() {
           <div className="menu-grid">
             {/* Item 1 */}
             <div className="menu-card">
-              <span className="menu-tag">Хит продаж</span>
               <img
                 src="https://cdn.poehali.dev/projects/88664095-633f-4fa5-a32a-b3924974a3ff/files/4f14616e-5ba7-4796-9d15-20b1ca3da102.jpg"
                 alt="Двойной смэш-бургер"
@@ -96,9 +95,6 @@ export default function Index() {
 
             {/* Item 2 */}
             <div className="menu-card">
-              <span className="menu-tag" style={{ background: "var(--secondary)" }}>
-                Острое
-              </span>
               <img
                 src="https://cdn.poehali.dev/projects/88664095-633f-4fa5-a32a-b3924974a3ff/files/1d45ec2b-ea0c-47ec-b320-c39a83a6dd7f.jpg"
                 alt="Шаурма с курицей"
@@ -121,9 +117,6 @@ export default function Index() {
 
             {/* Item 3 */}
             <div className="menu-card">
-              <span className="menu-tag" style={{ background: "var(--accent)", color: "var(--dark)" }}>
-                Популярное
-              </span>
               <img
                 src="https://cdn.poehali.dev/projects/88664095-633f-4fa5-a32a-b3924974a3ff/files/c961d287-1d66-43b4-9009-ae03c83bdd48.jpg"
                 alt="Картофель фри"
